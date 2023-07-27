@@ -36,6 +36,7 @@ ENV PATH="/home/${USER}/.local/bin:${PATH}"
 
 # Install Prerequisites
 # https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-setup.html#install-prerequisites
+RUN echo "deb http://ftp.br.debian.org/debian bullseye main" | tee -a /etc/apt/sources.list
 RUN ["dash", "-c", "\
     apt-get update --quiet \
  && apt-get install --assume-yes --no-install-recommends --quiet \
@@ -51,7 +52,7 @@ RUN ["dash", "-c", "\
      gperf \
      catch2 \
      libffi-dev \
-     libpython2.7 \
+     libpython2.7-dev \
      libssl-dev \
      libusb-1.0-0 \
      nano \
@@ -60,6 +61,7 @@ RUN ["dash", "-c", "\
      python3-pip \
      python3-setuptools \
      python3-venv \
+     python3-virtualenv \
      udev \
      wget \
  && apt-get clean \
